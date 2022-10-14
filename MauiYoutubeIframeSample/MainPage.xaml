@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiYoutubeIframeSample.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mauiyoutubeiframe="clr-namespace:MauiYoutubeIframe;assembly=MauiYoutubeIframe">
+
+    <Grid
+        RowDefinitions="auto,*">
+
+        <mauiyoutubeiframe:YoutubeIframe
+            x:Name="yt"
+            HeightRequest="350"
+            VideoId="{Binding Text,Mode=OneWay,Source={x:Reference videoId}}"/>
+
+        <ScrollView
+            Grid.Row="1">
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <Button
+                        Text="Play"
+                        Clicked="Play_Clicked"/>
+                    <Button
+                        Text="Pause"
+                        Clicked="Pause_Clicked"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <CheckBox
+                        x:Name="mute"/>
+                    <Label
+                        Text="Mute"/>
+                </HorizontalStackLayout>
+                <Label
+                    Text="Volume"/>
+                <Slider
+                    x:Name="volume"
+                    Minimum="0"
+                    Maximum="100"
+                    Value="100"/>
+                <Label
+                    x:Name="playerState"/>
+                <Label
+                    Text="Video id"/>
+                <Entry
+                    x:Name="videoId"
+                    Text="QAm1HHnPj8Q" />
+                <Editor
+                    x:Name="editor"
+                    HeightRequest="200"/>
+                <Button
+                    Text="Update params"
+                    Clicked="UpdateParams_Clicked"/>
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>
+
